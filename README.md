@@ -28,46 +28,9 @@ ADE: [🧠 Thinking: User wants weather app → Need file creation + API integra
 
 ## 🏗️ System Architecture
 
-```ascii
-┌─────────────────────────────────────────────────────────────┐
-│                     ADE SYSTEM OVERVIEW                     │
-├─────────────────────────────────────────────────────────────┤
-│                                                             │
-│  User Input                                                 │
-│      ▼                                                      │
-│ ┌──────────────┐     ┌─────────────────┐                    │
-│ │   RICH UI    │◄───►│  AUTONOMOUS     │                    │
-│ │   Console    │     │   THINKING      │                    │
-│ │              │     │                 │                    │
-│ │• Commands    │     │• Planning LLM   │                    │
-│ │• Mode Switch │     │• Strategy Gen   │                    │
-│ │• Progress    │     │• Context Aware  │                    │
-│ └──────────────┘     └─────────────────┘                    │
-│      │                        │                             │
-│      ▼                        ▼                             │ 
-│ ┌───────────────────────────────────────────────────────┐   │
-│ │              LANGCHAIN AGENT CORE                     │   │
-│ │                                                       │   │
-│ │  ┌─────────────┐ ┌─────────────┐ ┌─────────────────┐  │   │
-│ │  │ GEMINI LLM  │ │   MEMORY    │ │ TOOL REGISTRY   │  │   │
-│ │  │             │ │             │ │                 │  │   │
-│ │  │• Flash/Pro  │ │• Buffer     │ │• 11 Smart Tools │  │   │
-│ │  │• ReAct      │ │• Vector DB  │ │• Web Intel      │  │   │
-│ │  │• Reasoning  │ │• Learning   │ │• File Ops       │  │   │
-│ │  └─────────────┘ └─────────────┘ └─────────────────┘  │   │
-│ └───────────────────────────────────────────────────────┘   │
-│                               │                             │
-│                               ▼                             │
-│ ┌───────────────────────────────────────────────────────┐   │
-│ │                 INTELLIGENT TOOLS                     │   │
-│ │                                                       │   │
-│ │ 🌐 Universal Web Scraper  📁 File Operations         │   │
-│ │ 🌤️ Real-time Weather     🔢 Python REPL              │   │
-│ │ 🔍 Smart Web Search      📊 Calculator               │   │
-│ │ 📰 News & Price Tracker  📚 Documentation Search     │   │
-│ │ 🎯 Targeted Scraper      📝 Todo Management          │   │
-│ └───────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
+```
+<img width="512" height="800" alt="System Design" src="https://github.com/user-attachments/assets/16100e2f-3fdc-4edb-91f5-ce9189c2ea9a" />
+
 ```
 ---
 
