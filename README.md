@@ -30,7 +30,6 @@ ADE: [🧠 Thinking: User wants weather app → Need file creation + API integra
 
 
 <img width="512" height="800" alt="System Design" src="https://github.com/user-attachments/assets/16100e2f-3fdc-4edb-91f5-ce9189c2ea9a" />
-
 ```
 ---
 
