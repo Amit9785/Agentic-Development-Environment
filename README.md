@@ -1,7 +1,6 @@
 # 🧠 Autonomous Agentic Development Environment (ADE)
 
 ![ADE Demo]((![alt text](image.png) )
-*ADE in action: Autonomous thinking, real-time web intelligence, and intelligent tool orchestration*
 
 ---
 
