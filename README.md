@@ -29,7 +29,8 @@ ADE: [🧠 Thinking: User wants weather app → Need file creation + API integra
 ## 🏗️ System Architecture
 
 
-<img width="512" height="800" alt="System Design" src="https://github.com/user-attachments/assets/16100e2f-3fdc-4edb-91f5-ce9189c2ea9a" />
+<img width="8090" height="4574" alt="Sstem Architecture" src="https://github.com/user-attachments/assets/ba9a0202-fae6-4a53-8fad-32fc53af81f5" />
+
 ```
 ---
 
