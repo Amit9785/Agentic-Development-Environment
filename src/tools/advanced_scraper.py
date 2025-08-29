@@ -569,13 +569,13 @@ Examples:
                 results.extend(ddg_results)
             
             if results:
-                header = f"🔍 Enhanced Search Results for: '{query}'\n" + "="*60
+                header = f" Enhanced Search Results for: '{query}'\n" + "="*60
                 return header + "\n\n" + "\n\n".join(results[:5])
             else:
-                return f"🔍 Enhanced Search Results for: '{query}'\n" + "="*60 + f"\n\nNo specific results found. Try manual search:\n• https://www.google.com/search?q={quote_plus(query)}\n• https://www.bing.com/search?q={quote_plus(query)}"
+                return f" Enhanced Search Results for: '{query}'\n" + "="*60 + f"\n\nNo specific results found. Try manual search:\n• https://www.google.com/search?q={quote_plus(query)}\n• https://www.bing.com/search?q={quote_plus(query)}"
             
         except Exception as e:
-            return f"❌ Error in enhanced search: {str(e)}"
+            return f" Error in enhanced search: {str(e)}"
     
     def _enhanced_google_search(self, query: str) -> List[str]:
         """Enhanced Google search with better content extraction"""
@@ -678,7 +678,7 @@ def universal_web_scraper(query: str) -> str:
     try:
         return intelligent_scraper.universal_scrape(query)
     except Exception as e:
-        return f"❌ Error in universal scraping: {str(e)}\n\n🌐 Manual search: https://www.google.com/search?q={quote_plus(query)}"
+        return f" Error in universal scraping: {str(e)}\n\n🌐 Manual search: https://www.google.com/search?q={quote_plus(query)}"
 
 @tool("Real Time Weather")  
 def real_time_weather(city: str) -> str:
@@ -695,4 +695,4 @@ def real_time_weather(city: str) -> str:
     try:
         return intelligent_scraper.get_weather_from_multiple_sources(city)
     except Exception as e:
-        return f"❌ Error getting weather for {city}: {str(e)}"
+        return f" Error getting weather for {city}: {str(e)}"

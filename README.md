@@ -1,6 +1,6 @@
 # 🧠 Autonomous Agentic Development Environment (ADE)
 
-![ADE Demo](demo/ade-demo.gif)
+![ADE Demo]((![alt text](image.png) )
 *ADE in action: Autonomous thinking, real-time web intelligence, and intelligent tool orchestration*
 
 ---
@@ -35,25 +35,25 @@ ADE: [🧠 Thinking: User wants weather app → Need file creation + API integra
 │                                                             │
 │  User Input                                                 │
 │      ▼                                                      │
-│ ┌──────────────┐     ┌─────────────────┐                   │
-│ │   RICH UI    │◄───►│  AUTONOMOUS     │                   │
-│ │   Console    │     │   THINKING      │                   │
-│ │              │     │                 │                   │
-│ │• Commands    │     │• Planning LLM   │                   │
-│ │• Mode Switch │     │• Strategy Gen   │                   │
-│ │• Progress    │     │• Context Aware  │                   │
-│ └──────────────┘     └─────────────────┘                   │
-│      │                        │                            │
-│      ▼                        ▼                            │
+│ ┌──────────────┐     ┌─────────────────┐                    │
+│ │   RICH UI    │◄───►│  AUTONOMOUS     │                    │
+│ │   Console    │     │   THINKING      │                    │
+│ │              │     │                 │                    │
+│ │• Commands    │     │• Planning LLM   │                    │
+│ │• Mode Switch │     │• Strategy Gen   │                    │
+│ │• Progress    │     │• Context Aware  │                    │
+│ └──────────────┘     └─────────────────┘                    │
+│      │                        │                             │
+│      ▼                        ▼                             │ 
 │ ┌───────────────────────────────────────────────────────┐   │
-│ │              LANGCHAIN AGENT CORE                    │   │
-│ │                                                      │   │
+│ │              LANGCHAIN AGENT CORE                     │   │
+│ │                                                       │   │
 │ │  ┌─────────────┐ ┌─────────────┐ ┌─────────────────┐  │   │
 │ │  │ GEMINI LLM  │ │   MEMORY    │ │ TOOL REGISTRY   │  │   │
 │ │  │             │ │             │ │                 │  │   │
-│ │  │• Flash/Pro  │ │• Buffer     │ │• 11 Smart Tools│  │   │
-│ │  │• ReAct      │ │• Vector DB  │ │• Web Intel     │  │   │
-│ │  │• Reasoning  │ │• Learning   │ │• File Ops      │  │   │
+│ │  │• Flash/Pro  │ │• Buffer     │ │• 11 Smart Tools │  │   │
+│ │  │• ReAct      │ │• Vector DB  │ │• Web Intel      │  │   │
+│ │  │• Reasoning  │ │• Learning   │ │• File Ops       │  │   │
 │ │  └─────────────┘ └─────────────┘ └─────────────────┘  │   │
 │ └───────────────────────────────────────────────────────┘   │
 │                               │                             │
@@ -62,14 +62,13 @@ ADE: [🧠 Thinking: User wants weather app → Need file creation + API integra
 │ │                 INTELLIGENT TOOLS                     │   │
 │ │                                                       │   │
 │ │ 🌐 Universal Web Scraper  📁 File Operations         │   │
-│ │ 🌤️ Real-time Weather     🔢 Python REPL             │   │
-│ │ 🔍 Smart Web Search      📊 Calculator               │   │ │
+│ │ 🌤️ Real-time Weather     🔢 Python REPL              │   │
+│ │ 🔍 Smart Web Search      📊 Calculator               │   │
 │ │ 📰 News & Price Tracker  📚 Documentation Search     │   │
 │ │ 🎯 Targeted Scraper      📝 Todo Management          │   │
 │ └───────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
 ```
-
 ---
 
 ## 🌊 How It Works
@@ -164,7 +163,7 @@ python -m src.main
 | 🔢 **Math** | Calculator | Safe mathematical expression evaluation |
 | 🐍 **Code** | Python REPL | Execute Python code in isolated environment |
 | 📚 **Docs** | LangChain Search | Technical documentation and resources |
-| 📝 **Tasks** | Todo Management | Task creation, tracking, and analytics |
+| 📝 **Tasks** | File and Poject Management | Task creation, tracking, and analytics |
 
 ---
 

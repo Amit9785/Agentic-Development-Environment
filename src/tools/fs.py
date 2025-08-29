@@ -67,10 +67,23 @@ def fs_read(filepath: str) -> str:
         if os.path.isabs(filepath):
             p = Path(filepath)
         else:
-            p = Path(filepath)
+            # For relative paths, make them relative to current working directory (consistent with write)
+            p = Path.cwd() / filepath
         
         if not p.exists():
-            return f"File not found: {filepath}"
-        return p.read_text(encoding="utf-8")[:10000]  # guardrails
+            # Also try looking in the data/workspace directory as fallback
+            fallback_p = BASE / filepath
+            if fallback_p.exists():
+                p = fallback_p
+            else:
+                return f"❌ File not found: {filepath} (tried: {p.absolute()} and {fallback_p.absolute()})"
+        
+        content = p.read_text(encoding="utf-8")[:10000]  # guardrails
+        return f"📄 Content from {p.absolute()}:\n\n{content}"
+        
+    except PermissionError:
+        return f"❌ Permission denied: Cannot read {filepath}"
+    except UnicodeDecodeError as e:
+        return f"❌ Encoding error reading '{filepath}': {str(e)}. Try opening as binary or with different encoding."
     except Exception as e:
-        return f"Error reading file: {str(e)}"
+        return f"❌ Error reading file '{filepath}': {str(e)}"

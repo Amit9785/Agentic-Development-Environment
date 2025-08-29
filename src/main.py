@@ -1,16 +1,21 @@
 import os
 import json
+import sys
+import ctypes
+import subprocess
 from pathlib import Path
 from datetime import datetime
 from dotenv import load_dotenv
 from rich.console import Console
 from rich.panel import Panel
 from rich.text import Text
-from rich.prompt import Prompt
+from rich.prompt import Prompt, Confirm
 from rich.table import Table
+from rich.progress import Progress, SpinnerColumn, TextColumn
 from langchain.schema import HumanMessage
 
 from .agent import build_agent
+from .permission_manager import ADEPermissionManager
 
 class AutonomousADE:
     """Enhanced ADE with Autonomous Thinking Capabilities"""
@@ -292,9 +297,54 @@ AUTONOMOUS EXECUTION COMPLETE
                 self.console.print(f"[red]Unexpected error: {str(e)}[/red]")
 
 def main():
-    """Enhanced main function with autonomous capabilities"""
-    app = AutonomousADE()
-    app.run()
+    """Enhanced main function with permission checking and autonomous capabilities"""
+    console = Console()
+    
+    # Step 1: Check and manage permissions
+    console.print("[blue]🔐 Initializing ADE Permission Manager...[/blue]")
+    permission_manager = ADEPermissionManager()
+    
+    # Check all permissions
+    permission_manager.check_all_permissions(show_progress=True)
+    permission_manager.show_permission_status()
+    
+    # Check if critical permissions are missing
+    critical_issues = sum(1 for perm in permission_manager.permissions.values() 
+                         if perm["critical"] and not perm["status"])
+    
+    if critical_issues > 0:
+        console.print(f"\n[red]⚠️ {critical_issues} critical permissions are missing![/red]")
+        console.print("ADE requires these permissions to function properly.")
+        
+        if Confirm.ask("Would you like to start the interactive permission fixer?", default=True):
+            success = permission_manager.run_interactive_mode()
+            if not success:
+                console.print("\n[red]❌ Cannot start ADE without critical permissions.[/red]")
+                console.print("Please resolve permission issues and try again.")
+                return
+        else:
+            console.print("\n[yellow]⚠️ Skipping permission fixes. ADE may not work correctly.[/yellow]")
+    
+    # Re-check critical permissions one more time
+    permission_manager.check_all_permissions(show_progress=False)
+    final_critical_issues = sum(1 for perm in permission_manager.permissions.values() 
+                               if perm["critical"] and not perm["status"])
+    
+    if final_critical_issues > 0:
+        console.print(f"\n[red]❌ Still have {final_critical_issues} critical permission issues![/red]")
+        console.print("ADE cannot start without these permissions.")
+        return
+    
+    # Step 2: All permissions granted - start ADE
+    console.print("\n[green]✅ All critical permissions granted![/green]")
+    console.print("[blue]🚀 Starting Autonomous Development Environment...[/blue]\n")
+    
+    try:
+        app = AutonomousADE()
+        app.run()
+    except Exception as e:
+        console.print(f"\n[red]❌ Error starting ADE: {e}[/red]")
+        console.print("Please check your configuration and try again.")
 
 if __name__ == "__main__":
     main()
