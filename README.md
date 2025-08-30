@@ -33,6 +33,7 @@ ADE: [🧠 Thinking: User wants weather app → Need file creation + API integra
 ```
 ---
 
+```
 ## 🌊 How It Works
 
 ### **1. Autonomous Intelligence Flow**
