@@ -121,9 +121,10 @@ class LongTermStore:
 **Solution:** Multi-source web scraping with intelligent fallbacks
 
 ```python
-# Pseudo-code showing the pattern
+# Conceptual pattern showing multi-source fallback strategy
+# Note: WeatherComScraper, GoogleWeatherAPI, etc. represent actual implementations
 def get_weather(location):
-    sources = [weather_com, google_weather, accuweather, openweather]
+    sources = [WeatherComScraper, GoogleWeatherAPI, AccuWeatherAPI, OpenWeatherAPI]
     for source in sources:
         try:
             data = scrape(source, location)
@@ -211,7 +212,7 @@ TOOL_PRIORITY = {
 - ✅ **Multi-source intelligence** (5+ web sources per query type)
 
 ### **ML/AI Components**
-- ✅ **Google Gemini 1.5** integration for reasoning
+- ✅ **Google Gemini 1.5 Flash** integration for reasoning
 - ✅ **FAISS vector database** for semantic memory
 - ✅ **Embedding model** (Gemini-embedding-001)
 - ✅ **ReAct agent pattern** with LangChain
@@ -373,11 +374,14 @@ def build_agent(verbose: bool = True):
 
 ### **Vector Memory Implementation**
 ```python
+# Constants
+EMBEDDING_MODEL = "gemini-embedding-001"
+
 class LongTermStore:
     """FAISS-based long-term semantic memory."""
     def __init__(self, persist_dir="data/vectorstore"):
         self.embeddings = GoogleGenerativeAIEmbeddings(
-            model="gemini-embedding-001"
+            model=EMBEDDING_MODEL
         )
         self.vs = FAISS.from_texts(["Boot memory"], self.embeddings)
     
