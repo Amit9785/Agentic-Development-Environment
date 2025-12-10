@@ -2,6 +2,9 @@
 
 ![ADE Demo]((![alt text](image.png) )
 
+> 📚 **[View Full ML/Engineering Project Showcase →](ML_PROJECT_SHOWCASE.md)**  
+> *Comprehensive documentation of this project as an ML/AI engineering achievement*
+
 ---
 
 ## 🎯 What is ADE?
